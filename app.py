@@ -14,17 +14,45 @@ def home():
 
 
 
-# frequency route
+# Frequency route
 @app.route('/frequency/')
 def frequency():
     return render_template('frequency.html')
 
 
 
-# touchpoint-banks route
+# Touchpoint-banks route
 @app.route('/touchpoint-banks/')
 def touchpoint_banks():
     return render_template('touchpoint-banks.html')
+
+
+
+# Customer Journey route
+@app.route('/customer-journey/')
+def customer_journey():
+    return render_template('customer-journey.html')
+
+
+
+# Product Category route
+@app.route('/product-category/')
+def product_category():
+    return render_template('product-category.html')
+
+
+
+# Promotions route
+@app.route('/promotions/')
+def promotions():
+    return render_template('promotions.html')
+
+
+
+# Topics route
+@app.route('/topics/')
+def topics():
+    return render_template('topics.html')
 
 
 
