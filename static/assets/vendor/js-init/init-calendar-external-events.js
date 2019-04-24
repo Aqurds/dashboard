@@ -42,7 +42,7 @@ $(document).ready(function() {
           title: "Tech Event",
           start: "2018-03-07",
           end: "2018-03-10",
-          className: "d-fc-event-primary eventModal",          
+          className: "d-fc-event-primary eventModal",
         },
         {
           title: "Conference",
@@ -82,7 +82,7 @@ $(document).ready(function() {
           className: "d-fc-event-info eventModal"
         },
         {
-          title: "Google Event",          
+          title: "Google Event",
           start: "2018-03-28",
           className: "d-fc-event-success eventModal"
         }
@@ -101,9 +101,10 @@ $(document).ready(function() {
 
   //initFullScreenCalendar();
 
+
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     var activatedTab = e.target.hash;
-    
+
     if(activatedTab == '#tab-p-i_3') {
       setTimeout(() => {
         initFullScreenCalendar();
@@ -115,6 +116,6 @@ $(document).ready(function() {
     else {
         $('.inbox__filters').removeClass('active')
     }
-  
+
   })
 });

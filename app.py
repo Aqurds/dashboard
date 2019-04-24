@@ -56,6 +56,13 @@ def topics():
 
 
 
+# Mail route
+@app.route('/mail/')
+def mail():
+    return render_template('mail.html')
+
+
+
 
 if __name__ == '__main__':
     app.run(debug = True)

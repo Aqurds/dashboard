@@ -47,12 +47,12 @@
     <!--owl carousel -->
     <link href="../static/assets/css/owl.carousel.min.css" rel="stylesheet">
 
+    <!--fullcalendar-->
+    <link href='../static/assets/vendor/fullcalendar-3.7.0/fullcalendar.css' rel='stylesheet' />
+
     <!--custom styles-->
     <link href="../static/assets/css/main.css" rel="stylesheet">
 
-    <!-- FullCalendar Core/Daygrid Css -->
-    <link href='../static/assets/vendor/fullcalendar-3.7.0/core/main.css' rel='stylesheet' />
-    <link href='../static/assets/vendor/fullcalendar-3.7.0/daygrid/main.css' rel='stylesheet' />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -167,7 +167,7 @@
                         <span class="nav-link-text">Channel</span>
                     </a>
                     <ul class="sidenav-second-level collapse" id="ui_elements" data-parent="#accordion">
-                        <li> <a href="#">Mail</a> </li>
+                        <li> <a href="{{ url_for('mail') }}">Mail</a> </li>
                         <li> <a href="#">Print</a> </li>
                         <li> <a href="#" class="d-flex justify-content-between align-items-center">App Push <i
                                     class="icon-lock"></i></a></li>
@@ -254,10 +254,8 @@
                             <!-- <li class="dropdown-item msg-unread border-bottom">All Customer Segments</li> -->
                             <li class="dropdown-item d-flex justify-content-between align-items-center selected"><span
                                     class="itemText">Mail</span>
-
                             <li class="dropdown-item d-flex justify-content-between align-items-center"><span
                                     class="itemText">Print</span>
-
                             <li class="dropdown-item d-flex justify-content-between align-items-center"><span
                                     class="itemText">App Push</span>
                                 <i class="fa fa-lock"></i></li>
@@ -265,22 +263,10 @@
                                     class="itemText">Payback</span>
                                 <i class="fa fa-lock"></i></li>
                             <li class="dropdown-item d-flex justify-content-between align-items-center"><span
-                                        class="itemText">Website</span>
-                                    <i class="fa fa-lock"></i></li>
-                            <li class="dropdown-item d-flex justify-content-between align-items-center"><span
-                                            class="itemText">App</span>
-                                        <i class="fa fa-lock"></i></li>
-                            <li class="dropdown-item d-flex justify-content-between align-items-center"><span
                                         class="itemText">Messengers</span>
                                     <i class="fa fa-lock"></i></li>
                             <li class="dropdown-item d-flex justify-content-between align-items-center"><span
                                             class="itemText">Facebook Ads</span>
-                                        <i class="fa fa-lock"></i></li>
-                            <li class="dropdown-item d-flex justify-content-between align-items-center"><span
-                                        class="itemText">Life-time Buyer</span>
-                                    <i class="fa fa-lock"></i></li>
-                            <li class="dropdown-item d-flex justify-content-between align-items-center"><span
-                                            class="itemText">Review Platforms</span>
                                         <i class="fa fa-lock"></i></li>
                         </ul>
                     </div>
@@ -423,7 +409,7 @@
                                 <div class="custom-title">Time</div>
                             </div>
                         </div>
-                        <div class="card-body p-0" id="multi-line-chart-container">
+                        <div class="card-body p-0 line-chart-div" id="multi-line-chart-container">
                         </div>
                     </div>
                 </div>
@@ -486,14 +472,16 @@
             <!-- Third row of this apge, contain "Calendar" chart section. Start here -->
             <div class="row">
               <div class=" col-md-12">
-                  <div class="card card-shadow mb-4">
-                      <div class="card-header border-0">
-                          <div class="custom-title-wrap bar-warning">
-                              <div class="custom-title">Full Calendar</div>
+                  <div class="calendar__wrapper">
+                      <div class="card card-shadow mb-4">
+                          <!-- <div class="card-header border-0">
+                              <div class="custom-title-wrap bar-warning">
+                                  <div class="custom-title">Full Calendar</div>
+                              </div>
+                          </div> -->
+                          <div class="card-body">
+                              <div id='calendar-external-events'></div>
                           </div>
-                      </div>
-                      <div class="card-body">
-                          <div id='frequency-page-calendar'></div>
                       </div>
                   </div>
               </div>
@@ -514,7 +502,108 @@
     </div>
     <!--/main content wrapper-->
 
+    <!-- Modal -->
+    <div class="modal fade details__modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0 pl-0 pb-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
 
+                <div class="modal-body">
+                    <div class="details__modal__content">
+                        <div class="DM__left">
+                            <div class="DML_header">
+                                <figure><img src="../static/assets/img/brands/1.jpg" alt=""></figure>
+                                <div>
+                                    <h6>From <a href="#">Gousto(UK)</a> to <a href="#">subscription abandoner</a></h6>
+                                    <p>Tuesday, April 02, 2019 at 6:39 pm</p>
+                                </div>
+                            </div>
+                            <div class="DML_body">
+                                <h6>New menu out now!</h6>
+                                <p>can't see this email? <a href="">click here.</a> Gousto Corin, this weeek's menu if
+                                    here!
+                                </p>
+
+                                <div class="d-flex viewing__options">
+                                    <div><strong>VIEWING</strong>
+                                        <select>
+                                            <option>Desktop</option>
+                                        </select></div>
+                                    <button class="btn btn-sm btn-primary">Export Image</button>
+                                </div>
+
+                                <div class="image__preview">
+                                    <img src="../static/assets/img/images/4.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="DM__right">
+                            <ul class="nav" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#details__tab" role="tab"
+                                        aria-selected="true">Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#addtolist__tab" role="tab"
+                                        aria-selected="false">Add to List</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="details__tab" role="tabpanel">
+                                    <div class="tab__box">
+                                        <h6 class="text-muted">EMAIL SCORE <span data-toggle="tooltip"
+                                                data-placement="top" title="Some information"><i
+                                                    class="icon-question text-primary"></i></span></h6>
+                                        <div class="email__score">
+                                            <h2 class="text-success">87%</h2>
+                                            <ul class="list-unstyled">
+                                                <li class="text-success"><i class="ti-check"></i> Mobile Optimized</li>
+                                                <li class="text-success"><i class="ti-check"></i> Spam Filter Compliant
+                                                </li>
+                                                <li class="text-success"><i class="ti-check"></i> Replayable email
+                                                    adddess
+                                                </li>
+                                                <li class="text-danger"><i class="ti-close"></i> Optimized Preview text
+                                                </li>
+                                                <li class="text-success"><i class="ti-check"></i> Gmail Friendly HTML
+                                                    Weight
+                                                </li>
+                                                <li class="text-success"><i class="ti-check"></i> Inbox-Friendly Subject
+                                                    line Length</li>
+                                                <li class="text-success"><i class="ti-check"></i> Pasing DKIM & SPF
+                                                    Checks
+                                                </li>
+                                                <li class="text-success"><i class="ti-check"></i> Sensible Image Weight
+                                                </li>
+                                            </ul>
+                                            <p><a href="#">View Email Score Trends</a></p>
+                                        </div>
+
+                                        <div class="border-top border-bottom info__box">
+                                            <h5>What Powers Gousto (UK) Emails?</h5>
+                                            <p>Every email we recieve is passed to determine the sending ESP and any
+                                                additional
+                                                email technologies used. </p>
+                                            <button class="upgrade__btn">Upgrade Now</button>
+                                        </div>
+                                        <p class="text-muted mt-2"><small>Every email we recieve is passed.</small></p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="addtolist__tab" role="tabpanel">
+                                    Add to List</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal End -->
 
     <!--basic scripts-->
     <script src="../static/assets/vendor/jquery/jquery.min.js"></script>
@@ -534,13 +623,13 @@
     <!--chartjs-->
     <script src="../static/assets/vendor/chartjs/Chart.bundle.min.js"></script>
     <!--chartjs initialization-->
-    <script src="../static/assets/vendor/js-init/chartjs/init-bubble-chart.js"></script>
+    <!-- <script src="../static/assets/vendor/js-init/chartjs/init-bubble-chart.js"></script> -->
 
 
-    <script src="../static/../static/assets/vendor/js-init/chartjs/init-doughnut-chart.js"></script>
+    <!-- <script src="../static/../static/assets/vendor/js-init/chartjs/init-doughnut-chart.js"></script> -->
     <script src="../static/../static/assets/vendor/js-init/chartjs/init-doughnut-chart1.js"></script>
-    <script src="../static/../static/assets/vendor/js-init/chartjs/init-doughnut-chart2.js"></script>
-    <script src="../static/../static/assets/vendor/js-init/chartjs/init-dash3-sales.js"></script>
+    <!-- <script src="../static/../static/assets/vendor/js-init/chartjs/init-doughnut-chart2.js"></script> -->
+    <!-- <script src="../static/../static/assets/vendor/js-init/chartjs/init-dash3-sales.js"></script> -->
 
 
     <!--echarts-->
@@ -574,15 +663,18 @@
     <!-- owl carousel -->
     <script src="../static/assets/js/owl.carousel.min.js"></script>
 
-    <!-- FullCalendar JS Files -->
-    <script src='../static/assets/vendor/fullcalendar-3.7.0/core/main.js'></script>
-    <script src='../static/assets/vendor/fullcalendar-3.7.0/daygrid/main.js'></script>
 
     <!-- Miltuple line chart js code from Highchart.js -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <!--calender-->
+    <script src='../static/assets/vendor/fullcalendar-3.7.0/lib/moment.min.js'></script>
+    <script src='../static/assets/vendor/fullcalendar-3.7.0/fullcalendar.js'></script>
+    <!--init calendar-->
+    <!-- <script src='../static/assets/vendor/js-init/init-calendar-external-events.js'></script> -->
 
 
     <!-- Hitmap chart js code from Highchart.js -->
@@ -596,7 +688,7 @@
     <![endif]-->
 
     <!--basic scripts initialization-->
-    <script src="assets/js/scripts.js"></script>
+    <script src="../static/assets/js/scripts.js"></script>
     <script>
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
@@ -627,6 +719,10 @@
                 $(this).parents('.border-style-wrapper').find('.displayText').text(text);
 
                 //$(this).parents('.border-style-wrapper').find('.dropdown-item.msg-unread').text(text);
+            })
+
+            $(document).on('click', '.eventModal', function () {
+                $('.details__modal').modal('show');
             })
         })
 
@@ -794,71 +890,112 @@
 
 
 
-        // FullCalendar JS code start here
-        document.addEventListener('DOMContentLoaded', function() {
-          var calendarFl = document.getElementById('frequency-page-calendar');
 
-          var Fcalendar = new FullCalendar.Calendar(calendarFl, {
-            plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
-            defaultView: 'dayGridMonth',
-            defaultDate: '2019-04-07',
-            header: {
-              left: 'prev,next today',
-              center: 'title',
-              rigth:'dayGridMonth,timeGridWeek,timeGridDay'
-            },
-            events: [
-              {
-                title: 'All Day Event',
-                start: '2019-04-01'
-              },
-              {
-                title: 'Long Event',
-                start: '2019-04-07',
-                end: '2019-04-10'
-              },
-              {
-                groupId: '999',
-                title: 'Repeating Event',
-                start: '2019-04-09T16:00:00'
-              },
-              {
-                groupId: '999',
-                title: 'Repeating Event',
-                start: '2019-04-16T16:00:00'
-              },
-              {
-                title: 'Conference',
-                start: '2019-04-11',
-                end: '2019-04-13'
-              },
-              {
-                title: 'Meeting',
-                start: '2019-04-12T10:30:00',
-                end: '2019-04-12T12:30:00'
-              },
-              {
-                title: 'Lunch',
-                start: '2019-04-12T12:00:00'
-              },
-              {
-                title: 'Meeting',
-                start: '2019-04-12T14:30:00'
-              },
-              {
-                title: 'Birthday Party',
-                start: '2019-04-13T07:00:00'
-              },
-              {
-                title: 'Click for Google',
-                url: 'http://google.com/',
-                start: '2019-04-28'
-              }
-            ]
+        // Calendar initialization js code
+        /* initialize the external events
+           -----------------------------------------------------------------*/
+
+        $("#external-events .fc-event").each(function() {
+          // store data so the calendar knows to render an event upon drop
+          $(this).data("event", {
+            title: $.trim($(this).text()), // use the element's text as the event title
+            stick: true, // maintain when user navigates (see docs on the renderEvent method)
+            className: $(this).data("color"),
+            description: "make the event draggable using jQuery UI"
           });
 
-          Fcalendar.render();
+          // make the event draggable using jQuery UI
+          $(this).draggable({
+            zIndex: 999,
+            revert: true, // will cause the event to go back to its
+            revertDuration: 0 //  original position after the drag
+          });
         });
+
+        /* initialize the calendar
+           -----------------------------------------------------------------*/
+        function initFullScreenCalendar() {
+          $("#calendar-external-events").fullCalendar({
+            header: {
+              left: "prev",
+              center: "title",
+              right: "next"
+            },
+            defaultDate: "2018-03-12",
+            navLinks: true, // can click day/week names to navigate views
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            events: [
+              {
+                title: "Day Long Event",
+                start: "2018-03-01",
+                className:"eventModal"
+              },
+              {
+                title: "Tech Event",
+                start: "2018-03-07",
+                end: "2018-03-10",
+                className: "d-fc-event-primary eventModal",
+              },
+              {
+                title: "Conference",
+                start: "2018-03-17",
+                end: "2018-03-13",
+                className: "d-fc-event-warning eventModal"
+              },
+              {
+                title: "Meeting",
+                start: "2018-03-12T10:30:00",
+                end: "2018-03-12T12:30:00",
+                className:"eventModal"
+              },
+              {
+                title: "Lunch",
+                start: "2018-03-12T12:00:00",
+                className: "eventModal"
+              },
+              {
+                title: "Meeting",
+                start: "2018-03-12T14:30:00",
+                className: "eventModal"
+              },
+              {
+                title: "Happy Hour",
+                start: "2018-03-12T17:30:00",
+                className: "eventModal"
+              },
+              {
+                title: "Dinner",
+                start: "2018-03-12T20:00:00",
+                className: "eventModal"
+              },
+              {
+                title: "Birthday Party",
+                start: "2018-03-13T07:00:00",
+                className: "d-fc-event-info eventModal"
+              },
+              {
+                title: "Google Event",
+                start: "2018-03-28",
+                className: "d-fc-event-success eventModal"
+              }
+            ],
+            editable: true,
+            droppable: true, // this allows things to be dropped onto the calendar
+            drop: function() {
+              // is the "remove after drop" checkbox checked?
+              if ($("#drop-remove").is(":checked")) {
+                // if so, remove the element from the "Draggable Events" list
+                $(this).remove();
+              }
+            }
+          });
+        }
+
+        //initFullScreenCalendar();
+        initFullScreenCalendar();
+
+
 
 
 

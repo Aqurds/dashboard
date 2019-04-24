@@ -172,7 +172,7 @@
                         <span class="nav-link-text">Channel</span>
                     </a>
                     <ul class="sidenav-second-level collapse" id="ui_elements" data-parent="#accordion">
-                        <li> <a href="#">Mail</a> </li>
+                        <li> <a href="{{ url_for('mail') }}">Mail</a> </li>
                         <li> <a href="#">Print</a> </li>
                         <li> <a href="#" class="d-flex justify-content-between align-items-center">App Push <i
                                     class="icon-lock"></i></a></li>
@@ -358,10 +358,10 @@
                     <div class="card card-shadow mb-4 frequency-page-first-row-time-section-bubble-chart">
                         <div class="card-header border-0">
                             <div class="custom-title-wrap bar-pink">
-                                <div class="custom-title">Promotions over time</div>
+                                <div class="custom-title">Promotions Over Time</div>
                             </div>
                         </div>
-                        <div class="card-body p-0" id="multi-line-chart-container-product-category">
+                        <div class="card-body p-0 line-chart-div" id="multi-line-chart-container-product-category">
                         </div>
                     </div>
                 </div>
@@ -419,90 +419,64 @@
             <!-- Third row of this page, contain Accordion with tabs. Start from here-->
             <!-- =============================================================== -->
             <div class="row">
-              <div class=" col-md-12">
-                  <div class="card card-shadow mb-4">
-                      <div class="card-body" style="position:relative;">
-
-                          <!-- ============================= -->
-                          <!-- Tab controler UL start here -->
-                          <!-- ========================= -->
-                          <ul class="nav nav-pills mb-4 touchpoint-bank-tab-ul product-category-tab-controller" role="tablist">
-                              <li class="nav-item touchpoint-bank-tab-li">
-                                  <a class="nav-link active" data-toggle="tab" href="#tab-p_1"><i class="ti-image tab-icon-touchpoint-bank-page"></i>Thumbnail</a>
-                              </li>
-
-                              <li class="nav-item touchpoint-bank-tab-li touchpoint-bank-tab-li-last">
-                                  <a class="nav-link" data-toggle="tab" href="#tab-p_2"><i class="ti-layout tab-icon-touchpoint-bank-page"></i>Table</a>
-                              </li>
-                          </ul>
-                          <!-- =========================== -->
-                          <!-- Tab controler UL end here -->
-                          <!-- ======================= -->
+                <div class="col">
+                    <div class="card card-shadow mb-4">
+                        <div class="card-body position-relative">
+                            <ul class="nav custom__nav mb-4" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tab-p-i_1"><i
+                                            class="ti-image pr-1"></i> Thumbnail</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab-p-i_4"><i
+                                            class="ti-layout pr-1"></i>Table</a>
+                                </li>
+                            </ul>
 
 
-                          <!--product category page tab rightside links-->
-                          <ul class="navbar-nav header-links ml-auto hide-arrow product-category-tab-rightside-link">
 
-                              <li class="nav-item dropdown border-style-wrapper">
-                                  <a class="nav-link dropdown-toggle mr-lg-3 text-muted" id="messagesDropdown" href="#"
-                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <span class="displayText">Promotions</span> <i class="fa fa-caret-down pl-2"></i>
-                                  </a>
+                            <!--product category page tab rightside links-->
+                            <ul class="navbar-nav header-links ml-auto hide-arrow product-category-tab-rightside-link">
 
-                                  <div class="dropdown-menu dropdown-menu-right header-right-dropdown-width pb-0 custom-tab-ul" aria-labelledby="messagesDropdown">
+                                <li class="nav-item dropdown border-style-wrapper">
+                                    <a class="nav-link dropdown-toggle mr-lg-3 text-muted" id="messagesDropdown" href="#"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="displayText">Promotions</span> <i class="fa fa-caret-down pl-2"></i>
+                                    </a>
 
-                                      <ul class="list-unstyled">
-                                          <!-- <li class="dropdown-item msg-unread border-bottom">All Customer Segments</li> -->
-                                          <li class="dropdown-item d-flex justify-content-between align-items-center selected"><span
-                                                  class="itemText">Vacation</span>
+                                    <div class="dropdown-menu dropdown-menu-right header-right-dropdown-width pb-0 custom-tab-ul" aria-labelledby="messagesDropdown">
+
+                                        <ul class="list-unstyled">
+                                            <!-- <li class="dropdown-item msg-unread border-bottom">All Customer Segments</li> -->
+                                            <li class="dropdown-item d-flex justify-content-between align-items-center selected"><span
+                                                    class="itemText">Sale</span>
+                                                <i class="fa fa-lock"></i></li>
+                                            <li class="dropdown-item d-flex justify-content-between align-items-center"><span
+                                                    class="itemText">Vaoucher</span>
+                                                <i class="fa fa-lock"></i></li>
+                                            <li class="dropdown-item d-flex justify-content-between align-items-center"><span
+                                                    class="itemText">Cashback</span>
+                                                <i class="fa fa-lock"></i></li>
+                                            <li class="dropdown-item d-flex justify-content-between align-items-center"><span
+                                                    class="itemText">Points</span>
+                                                <i class="fa fa-lock"></i></li>
+                                            <li class="dropdown-item d-flex justify-content-between align-items-center"><span
+                                                  class="itemText">Balance</span>
                                               <i class="fa fa-lock"></i></li>
-                                          <li class="dropdown-item d-flex justify-content-between align-items-center"><span
-                                                  class="itemText">Insurance</span>
-                                              <i class="fa fa-lock"></i></li>
-                                          <li class="dropdown-item d-flex justify-content-between align-items-center"><span
-                                                  class="itemText">Profits</span>
-                                              <i class="fa fa-lock"></i></li>
-                                          <li class="dropdown-item d-flex justify-content-between align-items-center"><span
-                                                  class="itemText">Gas</span>
-                                              <i class="fa fa-lock"></i></li>
-                                          <li class="dropdown-item d-flex justify-content-between align-items-center"><span
-                                                class="itemText">DSL</span>
-                                            <i class="fa fa-lock"></i></li>
-                                          <li class="dropdown-item d-flex justify-content-between align-items-center"><span
-                                                  class="itemText">Mobile</span>
-                                              <i class="fa fa-lock"></i></li>
-                                          <li class="dropdown-item d-flex justify-content-between align-items-center"><span
-                                                  class="itemText">Electricity</span>
-                                              <i class="fa fa-lock"></i></li>
-                                      </ul>
-                                  </div>
-                              </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!--/header rightside links-->
 
 
-                          </ul>
-                          <!--/header rightside links-->
-
-
-
-
-                          <div class="tab-content product-category-tab-content">
-
-
-
-
-                              <!-- =============================== -->
-                              <!-- Second tab content start here -->
-                              <!-- =========================== -->
-                              <div class="tab-pane active" id="tab-p_1" role="tabpanel">
-                                <div class="row">
-                                  <div class="latest__touchpoints">
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
+                            <div class="tab-content tab-content-mobile-layout-fix">
+                                <div class="tab-pane active" id="tab-p-i_1" role="tabpanel">
+                                    <div class="thumbnail__wrapper">
+                                        <div class="touchpoint__box">
                                             <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
+                                                <figure data-toggle="modal" data-target=".details__modal"><img
+                                                        src="../static/assets/img/brands/1.jpg" alt=""></figure>
                                                 <div>
                                                     <h6>The Gousto Team</h6>
                                                     <p>Tue, Apr. 2, 2019 </p>
@@ -511,19 +485,17 @@
                                             <!--TB__header end-->
                                             <div class="TB__body">
                                                 <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
+                                                <a href="javascript:;" data-toggle="modal"
+                                                    data-target=".details__modal"><img src="../static/assets/img/images/5-1.jpg"
+                                                        alt=""></a>
                                             </div>
                                             <!--TB__body end-->
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
+                                        <!-- touchpoint__box -->
+                                        <div class="touchpoint__box">
                                             <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
+                                                <figure data-toggle="modal" data-target=".details__modal"><img
+                                                        src="../static/assets/img/brands/1.jpg" alt=""></figure>
                                                 <div>
                                                     <h6>The Gousto Team</h6>
                                                     <p>Tue, Apr. 2, 2019 </p>
@@ -532,19 +504,17 @@
                                             <!--TB__header end-->
                                             <div class="TB__body">
                                                 <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
+                                                <a href="javascript:;" data-toggle="modal"
+                                                    data-target=".details__modal"><img src="../static/assets/img/images/6-1.jpg"
+                                                        alt=""></a>
                                             </div>
                                             <!--TB__body end-->
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
+                                        <!-- touchpoint__box -->
+                                        <div class="touchpoint__box">
                                             <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
+                                                <figure data-toggle="modal" data-target=".details__modal"><img
+                                                        src="../static/assets/img/brands/1.jpg" alt=""></figure>
                                                 <div>
                                                     <h6>The Gousto Team</h6>
                                                     <p>Tue, Apr. 2, 2019 </p>
@@ -553,19 +523,17 @@
                                             <!--TB__header end-->
                                             <div class="TB__body">
                                                 <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
+                                                <a href="javascript:;" data-toggle="modal"
+                                                    data-target=".details__modal"><img src="../static/assets/img/images/7-1.jpg"
+                                                        alt=""></a>
                                             </div>
                                             <!--TB__body end-->
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
+                                        <!-- touchpoint__box -->
+                                        <div class="touchpoint__box">
                                             <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
+                                                <figure data-toggle="modal" data-target=".details__modal"><img
+                                                        src="../static/assets/img/brands/1.jpg" alt=""></figure>
                                                 <div>
                                                     <h6>The Gousto Team</h6>
                                                     <p>Tue, Apr. 2, 2019 </p>
@@ -574,19 +542,17 @@
                                             <!--TB__header end-->
                                             <div class="TB__body">
                                                 <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
+                                                <a href="javascript:;" data-toggle="modal"
+                                                    data-target=".details__modal"><img src="../static/assets/img/images/8-1.jpg"
+                                                        alt=""></a>
                                             </div>
                                             <!--TB__body end-->
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
+                                        <!-- touchpoint__box -->
+                                        <div class="touchpoint__box">
                                             <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
+                                                <figure data-toggle="modal" data-target=".details__modal"><img
+                                                        src="../static/assets/img/brands/1.jpg" alt=""></figure>
                                                 <div>
                                                     <h6>The Gousto Team</h6>
                                                     <p>Tue, Apr. 2, 2019 </p>
@@ -595,19 +561,17 @@
                                             <!--TB__header end-->
                                             <div class="TB__body">
                                                 <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
+                                                <a href="javascript:;" data-toggle="modal"
+                                                    data-target=".details__modal"><img src="../static/assets/img/images/9-1.jpg"
+                                                        alt=""></a>
                                             </div>
                                             <!--TB__body end-->
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
+                                        <!-- touchpoint__box -->
+                                        <div class="touchpoint__box">
                                             <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
+                                                <figure data-toggle="modal" data-target=".details__modal"><img
+                                                        src="../static/assets/img/brands/1.jpg" alt=""></figure>
                                                 <div>
                                                     <h6>The Gousto Team</h6>
                                                     <p>Tue, Apr. 2, 2019 </p>
@@ -616,19 +580,17 @@
                                             <!--TB__header end-->
                                             <div class="TB__body">
                                                 <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
+                                                <a href="javascript:;" data-toggle="modal"
+                                                    data-target=".details__modal"><img src="../static/assets/img/images/5-1.jpg"
+                                                        alt=""></a>
                                             </div>
                                             <!--TB__body end-->
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
+                                        <!-- touchpoint__box -->
+                                        <div class="touchpoint__box">
                                             <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
+                                                <figure data-toggle="modal" data-target=".details__modal"><img
+                                                        src="../static/assets/img/brands/1.jpg" alt=""></figure>
                                                 <div>
                                                     <h6>The Gousto Team</h6>
                                                     <p>Tue, Apr. 2, 2019 </p>
@@ -637,19 +599,17 @@
                                             <!--TB__header end-->
                                             <div class="TB__body">
                                                 <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
+                                                <a href="javascript:;" data-toggle="modal"
+                                                    data-target=".details__modal"><img src="../static/assets/img/images/7-1.jpg"
+                                                        alt=""></a>
                                             </div>
                                             <!--TB__body end-->
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
+                                        <!-- touchpoint__box -->
+                                        <div class="touchpoint__box">
                                             <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
+                                                <figure data-toggle="modal" data-target=".details__modal"><img
+                                                        src="../static/assets/img/brands/1.jpg" alt=""></figure>
                                                 <div>
                                                     <h6>The Gousto Team</h6>
                                                     <p>Tue, Apr. 2, 2019 </p>
@@ -658,19 +618,17 @@
                                             <!--TB__header end-->
                                             <div class="TB__body">
                                                 <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
+                                                <a href="javascript:;" data-toggle="modal"
+                                                    data-target=".details__modal"><img src="../static/assets/img/images/9-1.jpg"
+                                                        alt=""></a>
                                             </div>
                                             <!--TB__body end-->
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
+                                        <!-- touchpoint__box -->
+                                        <div class="touchpoint__box">
                                             <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
+                                                <figure data-toggle="modal" data-target=".details__modal"><img
+                                                        src="../static/assets/img/brands/1.jpg" alt=""></figure>
                                                 <div>
                                                     <h6>The Gousto Team</h6>
                                                     <p>Tue, Apr. 2, 2019 </p>
@@ -679,19 +637,17 @@
                                             <!--TB__header end-->
                                             <div class="TB__body">
                                                 <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
+                                                <a href="javascript:;" data-toggle="modal"
+                                                    data-target=".details__modal"><img src="../static/assets/img/images/9-1.jpg"
+                                                        alt=""></a>
                                             </div>
                                             <!--TB__body end-->
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
+                                        <!-- touchpoint__box -->
+                                        <div class="touchpoint__box">
                                             <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
+                                                <figure data-toggle="modal" data-target=".details__modal"><img
+                                                        src="../static/assets/img/brands/1.jpg" alt=""></figure>
                                                 <div>
                                                     <h6>The Gousto Team</h6>
                                                     <p>Tue, Apr. 2, 2019 </p>
@@ -700,648 +656,535 @@
                                             <!--TB__header end-->
                                             <div class="TB__body">
                                                 <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
+                                                <a href="javascript:;" data-toggle="modal"
+                                                    data-target=".details__modal"><img src="../static/assets/img/images/9-1.jpg"
+                                                        alt=""></a>
                                             </div>
                                             <!--TB__body end-->
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
-                                            <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
-                                                <div>
-                                                    <h6>The Gousto Team</h6>
-                                                    <p>Tue, Apr. 2, 2019 </p>
-                                                </div>
-                                            </div>
-                                            <!--TB__header end-->
-                                            <div class="TB__body">
-                                                <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
-                                            </div>
-                                            <!--TB__body end-->
+                                        <!-- touchpoint__box -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-5">
                                         </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
-                                            <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
-                                                <div>
-                                                    <h6>The Gousto Team</h6>
-                                                    <p>Tue, Apr. 2, 2019 </p>
-                                                </div>
+                                        <div class="col-sm-12 col-md-7">
+                                            <div class="dataTables_paginate paging_simple_numbers"
+                                                id="data_table_paginate">
+                                                <ul class="pagination justify-content-end">
+                                                    <li class="paginate_button page-item previous disabled"><a
+                                                            href="javascript:;" class="page-link">Previous</a>
+                                                    </li>
+                                                    <li class="paginate_button page-item active"><a href="javascript:;"
+                                                            class="page-link">1</a></li>
+                                                    <li class="paginate_button page-item next disabled"><a
+                                                            class="page-link">Next</a></li>
+                                                </ul>
                                             </div>
-                                            <!--TB__header end-->
-                                            <div class="TB__body">
-                                                <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
-                                            </div>
-                                            <!--TB__body end-->
                                         </div>
-                                      </div>
+                                    </div>
 
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
-                                            <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
-                                                <div>
-                                                    <h6>The Gousto Team</h6>
-                                                    <p>Tue, Apr. 2, 2019 </p>
-                                                </div>
-                                            </div>
-                                            <!--TB__header end-->
-                                            <div class="TB__body">
-                                                <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
-                                            </div>
-                                            <!--TB__body end-->
-                                        </div>
-                                      </div>
 
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
-                                            <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
-                                                <div>
-                                                    <h6>The Gousto Team</h6>
-                                                    <p>Tue, Apr. 2, 2019 </p>
-                                                </div>
-                                            </div>
-                                            <!--TB__header end-->
-                                            <div class="TB__body">
-                                                <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
-                                            </div>
-                                            <!--TB__body end-->
-                                        </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
-                                            <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
-                                                <div>
-                                                    <h6>The Gousto Team</h6>
-                                                    <p>Tue, Apr. 2, 2019 </p>
-                                                </div>
-                                            </div>
-                                            <!--TB__header end-->
-                                            <div class="TB__body">
-                                                <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
-                                            </div>
-                                            <!--TB__body end-->
-                                        </div>
-                                      </div>
-
-                                      <!-- Touchpoint-bank single thumbnail box -->
-                                      <div class="col-12 col-md-4 col-xl-3 thumbnail-box-touchpoint-bank-page">
-                                        <div class="touchpoint__box ">
-                                            <div class="TB__header">
-                                                <figure data-toggle="modal" data-target=".details__modal"><img src="../static/assets/img/brands/1.jpg"
-                                                        alt=""></figure>
-                                                <div>
-                                                    <h6>The Gousto Team</h6>
-                                                    <p>Tue, Apr. 2, 2019 </p>
-                                                </div>
-                                            </div>
-                                            <!--TB__header end-->
-                                            <div class="TB__body">
-                                                <h2>New menu out now!</h2>
-                                                <a href="javascript:;" data-toggle="modal" data-target=".details__modal"><img
-                                                        src="../static/assets/img/images/5-1.jpg" alt=""></a>
-                                            </div>
-                                            <!--TB__body end-->
-                                        </div>
-                                      </div>
-
-                                  </div>
                                 </div>
-                              </div>
-                              <!-- ============================= -->
-                              <!-- Second tab content end here -->
-                              <!-- ========================= -->
-
-
-
-
-                              <!-- ============================== -->
-                              <!-- First tab content start here -->
-                              <!-- ========================== -->
-                              <div class="tab-pane" id="tab-p_2" role="tabpanel">
-                                <div class="table-responsive">
-                                    <table id="data_table" class="table table-bordered table-striped" cellspacing="0">
-                                        <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                        </thead>
-                                        <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                        </tfoot>
-                                        <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Tokyo</td>
-                                            <td>55</td>
-                                            <td>2010/10/14</td>
-                                            <td>$327,900</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sonya Frost</td>
-                                            <td>Software Engineer</td>
-                                            <td>Edinburgh</td>
-                                            <td>23</td>
-                                            <td>2008/12/13</td>
-                                            <td>$103,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jena Gaines</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>30</td>
-                                            <td>2008/12/19</td>
-                                            <td>$90,560</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Quinn Flynn</td>
-                                            <td>Support Lead</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2013/03/03</td>
-                                            <td>$342,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Charde Marshall</td>
-                                            <td>Regional Director</td>
-                                            <td>San Francisco</td>
-                                            <td>36</td>
-                                            <td>2008/10/16</td>
-                                            <td>$470,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Haley Kennedy</td>
-                                            <td>Senior Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>43</td>
-                                            <td>2012/12/18</td>
-                                            <td>$313,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tatyana Fitzpatrick</td>
-                                            <td>Regional Director</td>
-                                            <td>London</td>
-                                            <td>19</td>
-                                            <td>2010/03/17</td>
-                                            <td>$385,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Silva</td>
-                                            <td>Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>66</td>
-                                            <td>2012/11/27</td>
-                                            <td>$198,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Paul Byrd</td>
-                                            <td>Chief Financial Officer (CFO)</td>
-                                            <td>New York</td>
-                                            <td>64</td>
-                                            <td>2010/06/09</td>
-                                            <td>$725,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gloria Little</td>
-                                            <td>Systems Administrator</td>
-                                            <td>New York</td>
-                                            <td>59</td>
-                                            <td>2009/04/10</td>
-                                            <td>$237,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bradley Greer</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>41</td>
-                                            <td>2012/10/13</td>
-                                            <td>$132,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dai Rios</td>
-                                            <td>Personnel Lead</td>
-                                            <td>Edinburgh</td>
-                                            <td>35</td>
-                                            <td>2012/09/26</td>
-                                            <td>$217,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jenette Caldwell</td>
-                                            <td>Development Lead</td>
-                                            <td>New York</td>
-                                            <td>30</td>
-                                            <td>2011/09/03</td>
-                                            <td>$345,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Yuri Berry</td>
-                                            <td>Chief Marketing Officer (CMO)</td>
-                                            <td>New York</td>
-                                            <td>40</td>
-                                            <td>2009/06/25</td>
-                                            <td>$675,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Caesar Vance</td>
-                                            <td>Pre-Sales Support</td>
-                                            <td>New York</td>
-                                            <td>21</td>
-                                            <td>2011/12/12</td>
-                                            <td>$106,450</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Doris Wilder</td>
-                                            <td>Sales Assistant</td>
-                                            <td>Sidney</td>
-                                            <td>23</td>
-                                            <td>2010/09/20</td>
-                                            <td>$85,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2009/10/09</td>
-                                            <td>$1,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gavin Joyce</td>
-                                            <td>Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>42</td>
-                                            <td>2010/12/22</td>
-                                            <td>$92,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jennifer Chang</td>
-                                            <td>Regional Director</td>
-                                            <td>Singapore</td>
-                                            <td>28</td>
-                                            <td>2010/11/14</td>
-                                            <td>$357,650</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brenden Wagner</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>28</td>
-                                            <td>2011/06/07</td>
-                                            <td>$206,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fiona Green</td>
-                                            <td>Chief Operating Officer (COO)</td>
-                                            <td>San Francisco</td>
-                                            <td>48</td>
-                                            <td>2010/03/11</td>
-                                            <td>$850,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shou Itou</td>
-                                            <td>Regional Marketing</td>
-                                            <td>Tokyo</td>
-                                            <td>20</td>
-                                            <td>2011/08/14</td>
-                                            <td>$163,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michelle House</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Sidney</td>
-                                            <td>37</td>
-                                            <td>2011/06/02</td>
-                                            <td>$95,400</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Suki Burks</td>
-                                            <td>Developer</td>
-                                            <td>London</td>
-                                            <td>53</td>
-                                            <td>2009/10/22</td>
-                                            <td>$114,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Prescott Bartlett</td>
-                                            <td>Technical Author</td>
-                                            <td>London</td>
-                                            <td>27</td>
-                                            <td>2011/05/07</td>
-                                            <td>$145,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gavin Cortez</td>
-                                            <td>Team Leader</td>
-                                            <td>San Francisco</td>
-                                            <td>22</td>
-                                            <td>2008/10/26</td>
-                                            <td>$235,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Martena Mccray</td>
-                                            <td>Post-Sales support</td>
-                                            <td>Edinburgh</td>
-                                            <td>46</td>
-                                            <td>2011/03/09</td>
-                                            <td>$324,050</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/12/09</td>
-                                            <td>$85,675</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Howard Hatfield</td>
-                                            <td>Office Manager</td>
-                                            <td>San Francisco</td>
-                                            <td>51</td>
-                                            <td>2008/12/16</td>
-                                            <td>$164,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hope Fuentes</td>
-                                            <td>Secretary</td>
-                                            <td>San Francisco</td>
-                                            <td>41</td>
-                                            <td>2010/02/12</td>
-                                            <td>$109,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vivian Harrell</td>
-                                            <td>Financial Controller</td>
-                                            <td>San Francisco</td>
-                                            <td>62</td>
-                                            <td>2009/02/14</td>
-                                            <td>$452,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Timothy Mooney</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>37</td>
-                                            <td>2008/12/11</td>
-                                            <td>$136,200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jackson Bradshaw</td>
-                                            <td>Director</td>
-                                            <td>New York</td>
-                                            <td>65</td>
-                                            <td>2008/09/26</td>
-                                            <td>$645,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Liang</td>
-                                            <td>Support Engineer</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2011/02/03</td>
-                                            <td>$234,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03</td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sakura Yamamoto</td>
-                                            <td>Support Engineer</td>
-                                            <td>Tokyo</td>
-                                            <td>37</td>
-                                            <td>2009/08/19</td>
-                                            <td>$139,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thor Walton</td>
-                                            <td>Developer</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2013/08/11</td>
-                                            <td>$98,540</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Finn Camacho</td>
-                                            <td>Support Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/07/07</td>
-                                            <td>$87,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Serge Baldwin</td>
-                                            <td>Data Coordinator</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2012/04/09</td>
-                                            <td>$138,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zenaida Frank</td>
-                                            <td>Software Engineer</td>
-                                            <td>New York</td>
-                                            <td>63</td>
-                                            <td>2010/01/04</td>
-                                            <td>$125,250</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zorita Serrano</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>56</td>
-                                            <td>2012/06/01</td>
-                                            <td>$115,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jennifer Acosta</td>
-                                            <td>Junior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>43</td>
-                                            <td>2013/02/01</td>
-                                            <td>$75,650</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cara Stevens</td>
-                                            <td>Sales Assistant</td>
-                                            <td>New York</td>
-                                            <td>46</td>
-                                            <td>2011/12/06</td>
-                                            <td>$145,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hermione Butler</td>
-                                            <td>Regional Director</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2011/03/21</td>
-                                            <td>$356,250</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lael Greer</td>
-                                            <td>Systems Administrator</td>
-                                            <td>London</td>
-                                            <td>21</td>
-                                            <td>2009/02/27</td>
-                                            <td>$103,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jonas Alexander</td>
-                                            <td>Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>30</td>
-                                            <td>2010/07/14</td>
-                                            <td>$86,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shad Decker</td>
-                                            <td>Regional Director</td>
-                                            <td>Edinburgh</td>
-                                            <td>51</td>
-                                            <td>2008/11/13</td>
-                                            <td>$183,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Bruce</td>
-                                            <td>Javascript Developer</td>
-                                            <td>Singapore</td>
-                                            <td>29</td>
-                                            <td>2011/06/27</td>
-                                            <td>$183,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer Support</td>
-                                            <td>New York</td>
-                                            <td>27</td>
-                                            <td>2011/01/25</td>
-                                            <td>$112,000</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="tab-pane" id="tab-p-i_4" role="tabpanel">
+                                    <div class="card card-shadow mb-4">
+                                        <!-- <div class="card-header border-0">
+                                            <div class="custom-title-wrap bar-primary">
+                                                <div class="custom-title">Datatable</div>
+                                            </div>
+                                        </div> -->
+                                        <div class="card-body- pt-3 pb-4">
+                                            <div class="table-responsive">
+                                                <table id="data_table" class="table table-bordered table-striped"
+                                                    cellspacing="0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Company</th>
+                                                            <th>Customer Segment</th>
+                                                            <th>Date</th>
+                                                            <th>Time</th>
+                                                            <th>Subject</th>
+                                                            <th>Product Category</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Position</th>
+                                                            <th>Office</th>
+                                                            <th>Age</th>
+                                                            <th>Start date</th>
+                                                            <th>Salary</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tiger Nixon</td>
+                                                            <td>System Architect</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>61</td>
+                                                            <td>2011/04/25</td>
+                                                            <td>$320,800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Garrett Winters</td>
+                                                            <td>Accountant</td>
+                                                            <td>Tokyo</td>
+                                                            <td>63</td>
+                                                            <td>2011/07/25</td>
+                                                            <td>$170,750</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ashton Cox</td>
+                                                            <td>Junior Technical Author</td>
+                                                            <td>San Francisco</td>
+                                                            <td>66</td>
+                                                            <td>2009/01/12</td>
+                                                            <td>$86,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Cedric Kelly</td>
+                                                            <td>Senior Javascript Developer</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>22</td>
+                                                            <td>2012/03/29</td>
+                                                            <td>$433,060</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Airi Satou</td>
+                                                            <td>Accountant</td>
+                                                            <td>Tokyo</td>
+                                                            <td>33</td>
+                                                            <td>2008/11/28</td>
+                                                            <td>$162,700</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Brielle Williamson</td>
+                                                            <td>Integration Specialist</td>
+                                                            <td>New York</td>
+                                                            <td>61</td>
+                                                            <td>2012/12/02</td>
+                                                            <td>$372,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Herrod Chandler</td>
+                                                            <td>Sales Assistant</td>
+                                                            <td>San Francisco</td>
+                                                            <td>59</td>
+                                                            <td>2012/08/06</td>
+                                                            <td>$137,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Rhona Davidson</td>
+                                                            <td>Integration Specialist</td>
+                                                            <td>Tokyo</td>
+                                                            <td>55</td>
+                                                            <td>2010/10/14</td>
+                                                            <td>$327,900</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Colleen Hurst</td>
+                                                            <td>Javascript Developer</td>
+                                                            <td>San Francisco</td>
+                                                            <td>39</td>
+                                                            <td>2009/09/15</td>
+                                                            <td>$205,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Sonya Frost</td>
+                                                            <td>Software Engineer</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>23</td>
+                                                            <td>2008/12/13</td>
+                                                            <td>$103,600</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Jena Gaines</td>
+                                                            <td>Office Manager</td>
+                                                            <td>London</td>
+                                                            <td>30</td>
+                                                            <td>2008/12/19</td>
+                                                            <td>$90,560</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Quinn Flynn</td>
+                                                            <td>Support Lead</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>22</td>
+                                                            <td>2013/03/03</td>
+                                                            <td>$342,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Charde Marshall</td>
+                                                            <td>Regional Director</td>
+                                                            <td>San Francisco</td>
+                                                            <td>36</td>
+                                                            <td>2008/10/16</td>
+                                                            <td>$470,600</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Haley Kennedy</td>
+                                                            <td>Senior Marketing Designer</td>
+                                                            <td>London</td>
+                                                            <td>43</td>
+                                                            <td>2012/12/18</td>
+                                                            <td>$313,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tatyana Fitzpatrick</td>
+                                                            <td>Regional Director</td>
+                                                            <td>London</td>
+                                                            <td>19</td>
+                                                            <td>2010/03/17</td>
+                                                            <td>$385,750</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Michael Silva</td>
+                                                            <td>Marketing Designer</td>
+                                                            <td>London</td>
+                                                            <td>66</td>
+                                                            <td>2012/11/27</td>
+                                                            <td>$198,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Paul Byrd</td>
+                                                            <td>Chief Financial Officer (CFO)</td>
+                                                            <td>New York</td>
+                                                            <td>64</td>
+                                                            <td>2010/06/09</td>
+                                                            <td>$725,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Gloria Little</td>
+                                                            <td>Systems Administrator</td>
+                                                            <td>New York</td>
+                                                            <td>59</td>
+                                                            <td>2009/04/10</td>
+                                                            <td>$237,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Bradley Greer</td>
+                                                            <td>Software Engineer</td>
+                                                            <td>London</td>
+                                                            <td>41</td>
+                                                            <td>2012/10/13</td>
+                                                            <td>$132,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Dai Rios</td>
+                                                            <td>Personnel Lead</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>35</td>
+                                                            <td>2012/09/26</td>
+                                                            <td>$217,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Jenette Caldwell</td>
+                                                            <td>Development Lead</td>
+                                                            <td>New York</td>
+                                                            <td>30</td>
+                                                            <td>2011/09/03</td>
+                                                            <td>$345,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Yuri Berry</td>
+                                                            <td>Chief Marketing Officer (CMO)</td>
+                                                            <td>New York</td>
+                                                            <td>40</td>
+                                                            <td>2009/06/25</td>
+                                                            <td>$675,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Caesar Vance</td>
+                                                            <td>Pre-Sales Support</td>
+                                                            <td>New York</td>
+                                                            <td>21</td>
+                                                            <td>2011/12/12</td>
+                                                            <td>$106,450</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Doris Wilder</td>
+                                                            <td>Sales Assistant</td>
+                                                            <td>Sidney</td>
+                                                            <td>23</td>
+                                                            <td>2010/09/20</td>
+                                                            <td>$85,600</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Angelica Ramos</td>
+                                                            <td>Chief Executive Officer (CEO)</td>
+                                                            <td>London</td>
+                                                            <td>47</td>
+                                                            <td>2009/10/09</td>
+                                                            <td>$1,200,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Gavin Joyce</td>
+                                                            <td>Developer</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>42</td>
+                                                            <td>2010/12/22</td>
+                                                            <td>$92,575</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Jennifer Chang</td>
+                                                            <td>Regional Director</td>
+                                                            <td>Singapore</td>
+                                                            <td>28</td>
+                                                            <td>2010/11/14</td>
+                                                            <td>$357,650</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Brenden Wagner</td>
+                                                            <td>Software Engineer</td>
+                                                            <td>San Francisco</td>
+                                                            <td>28</td>
+                                                            <td>2011/06/07</td>
+                                                            <td>$206,850</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Fiona Green</td>
+                                                            <td>Chief Operating Officer (COO)</td>
+                                                            <td>San Francisco</td>
+                                                            <td>48</td>
+                                                            <td>2010/03/11</td>
+                                                            <td>$850,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Shou Itou</td>
+                                                            <td>Regional Marketing</td>
+                                                            <td>Tokyo</td>
+                                                            <td>20</td>
+                                                            <td>2011/08/14</td>
+                                                            <td>$163,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Michelle House</td>
+                                                            <td>Integration Specialist</td>
+                                                            <td>Sidney</td>
+                                                            <td>37</td>
+                                                            <td>2011/06/02</td>
+                                                            <td>$95,400</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Suki Burks</td>
+                                                            <td>Developer</td>
+                                                            <td>London</td>
+                                                            <td>53</td>
+                                                            <td>2009/10/22</td>
+                                                            <td>$114,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Prescott Bartlett</td>
+                                                            <td>Technical Author</td>
+                                                            <td>London</td>
+                                                            <td>27</td>
+                                                            <td>2011/05/07</td>
+                                                            <td>$145,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Gavin Cortez</td>
+                                                            <td>Team Leader</td>
+                                                            <td>San Francisco</td>
+                                                            <td>22</td>
+                                                            <td>2008/10/26</td>
+                                                            <td>$235,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Martena Mccray</td>
+                                                            <td>Post-Sales support</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>46</td>
+                                                            <td>2011/03/09</td>
+                                                            <td>$324,050</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Unity Butler</td>
+                                                            <td>Marketing Designer</td>
+                                                            <td>San Francisco</td>
+                                                            <td>47</td>
+                                                            <td>2009/12/09</td>
+                                                            <td>$85,675</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Howard Hatfield</td>
+                                                            <td>Office Manager</td>
+                                                            <td>San Francisco</td>
+                                                            <td>51</td>
+                                                            <td>2008/12/16</td>
+                                                            <td>$164,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Hope Fuentes</td>
+                                                            <td>Secretary</td>
+                                                            <td>San Francisco</td>
+                                                            <td>41</td>
+                                                            <td>2010/02/12</td>
+                                                            <td>$109,850</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Vivian Harrell</td>
+                                                            <td>Financial Controller</td>
+                                                            <td>San Francisco</td>
+                                                            <td>62</td>
+                                                            <td>2009/02/14</td>
+                                                            <td>$452,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Timothy Mooney</td>
+                                                            <td>Office Manager</td>
+                                                            <td>London</td>
+                                                            <td>37</td>
+                                                            <td>2008/12/11</td>
+                                                            <td>$136,200</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Jackson Bradshaw</td>
+                                                            <td>Director</td>
+                                                            <td>New York</td>
+                                                            <td>65</td>
+                                                            <td>2008/09/26</td>
+                                                            <td>$645,750</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Olivia Liang</td>
+                                                            <td>Support Engineer</td>
+                                                            <td>Singapore</td>
+                                                            <td>64</td>
+                                                            <td>2011/02/03</td>
+                                                            <td>$234,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Bruno Nash</td>
+                                                            <td>Software Engineer</td>
+                                                            <td>London</td>
+                                                            <td>38</td>
+                                                            <td>2011/05/03</td>
+                                                            <td>$163,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Sakura Yamamoto</td>
+                                                            <td>Support Engineer</td>
+                                                            <td>Tokyo</td>
+                                                            <td>37</td>
+                                                            <td>2009/08/19</td>
+                                                            <td>$139,575</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Thor Walton</td>
+                                                            <td>Developer</td>
+                                                            <td>New York</td>
+                                                            <td>61</td>
+                                                            <td>2013/08/11</td>
+                                                            <td>$98,540</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Finn Camacho</td>
+                                                            <td>Support Engineer</td>
+                                                            <td>San Francisco</td>
+                                                            <td>47</td>
+                                                            <td>2009/07/07</td>
+                                                            <td>$87,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serge Baldwin</td>
+                                                            <td>Data Coordinator</td>
+                                                            <td>Singapore</td>
+                                                            <td>64</td>
+                                                            <td>2012/04/09</td>
+                                                            <td>$138,575</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Zenaida Frank</td>
+                                                            <td>Software Engineer</td>
+                                                            <td>New York</td>
+                                                            <td>63</td>
+                                                            <td>2010/01/04</td>
+                                                            <td>$125,250</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Zorita Serrano</td>
+                                                            <td>Software Engineer</td>
+                                                            <td>San Francisco</td>
+                                                            <td>56</td>
+                                                            <td>2012/06/01</td>
+                                                            <td>$115,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Jennifer Acosta</td>
+                                                            <td>Junior Javascript Developer</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>43</td>
+                                                            <td>2013/02/01</td>
+                                                            <td>$75,650</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Cara Stevens</td>
+                                                            <td>Sales Assistant</td>
+                                                            <td>New York</td>
+                                                            <td>46</td>
+                                                            <td>2011/12/06</td>
+                                                            <td>$145,600</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Hermione Butler</td>
+                                                            <td>Regional Director</td>
+                                                            <td>London</td>
+                                                            <td>47</td>
+                                                            <td>2011/03/21</td>
+                                                            <td>$356,250</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Lael Greer</td>
+                                                            <td>Systems Administrator</td>
+                                                            <td>London</td>
+                                                            <td>21</td>
+                                                            <td>2009/02/27</td>
+                                                            <td>$103,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Jonas Alexander</td>
+                                                            <td>Developer</td>
+                                                            <td>San Francisco</td>
+                                                            <td>30</td>
+                                                            <td>2010/07/14</td>
+                                                            <td>$86,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Shad Decker</td>
+                                                            <td>Regional Director</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>51</td>
+                                                            <td>2008/11/13</td>
+                                                            <td>$183,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Michael Bruce</td>
+                                                            <td>Javascript Developer</td>
+                                                            <td>Singapore</td>
+                                                            <td>29</td>
+                                                            <td>2011/06/27</td>
+                                                            <td>$183,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Donna Snider</td>
+                                                            <td>Customer Support</td>
+                                                            <td>New York</td>
+                                                            <td>27</td>
+                                                            <td>2011/01/25</td>
+                                                            <td>$112,000</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
-                              <!-- ============================ -->
-                              <!-- First tab content end here -->
-                              <!-- ======================== -->
-
-
-
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- First row of this page, contain Accordion with pill tabs. End here-->
+            <!-- Third row of this page, contain Accordion with pill tabs. End here-->
 
         </div>
 
@@ -1579,6 +1422,10 @@
                 $(this).parents('.border-style-wrapper').find('.displayText').text(text);
 
                 //$(this).parents('.border-style-wrapper').find('.dropdown-item.msg-unread').text(text);
+            })
+
+            $(document).on('click', '#data_table tbody tr', function () {
+                $('.details__modal').modal('show');
             })
         })
 
